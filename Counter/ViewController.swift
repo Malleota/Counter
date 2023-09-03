@@ -8,9 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var countButtin: UIButton!
     
+    
+    @IBOutlet weak var plusButton: UIButton!
+    
+    @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var countLable: UILabel!
+    @IBOutlet weak var delButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -19,9 +23,23 @@ class ViewController: UIViewController {
     @IBAction func clickCountButton(_ sender: Any) {
         countValue += 1
         countLable.text = String(countValue)
-        print(countValue)
+        
     }
     
-
+    @IBAction func clickMinusButton(_ sender: Any) {
+        if(countValue != 0){
+            countValue -= 1
+            countLable.text = String(countValue)
+        }else{
+            countLable.text = "0"
+        }
+        
+       
+    }
+    
+    @IBAction func delButtonClick(_ sender: Any) {
+        countValue = 0
+        countLable.text = String(countValue)
+    }
 }
 
